@@ -15,13 +15,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="main_homepage")
      */
     public function index(): Response
     {
         $entityManger = $this->getDoctrine()->getManager();
         $productList = $entityManger->getRepository(Product::class)->findAll();
-        dd($productList);
 
         return $this->render('main/default/index.html.twig');
     }
